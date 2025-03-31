@@ -56,3 +56,30 @@ Validate: Checks the Terraform configuration for syntax errors.
 Plan: Generates an execution plan for Terraform changes.
 Apply: Applies the changes to the infrastructure (requires manual approval).
 Destroy: Destroys the infrastructure (requires manual approval).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
