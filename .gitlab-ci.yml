@@ -1,4 +1,4 @@
-image: hashicorp/terraform:latest
+image: alpine:latest
 
 variables:
     TF_IN_AUTOMATION: "1"
@@ -15,10 +15,14 @@ cache:
   paths:
     - .terraform/ # Cache Terraform dependencies to speed up CI/CD runs
 
+before_script:
+  - apk add --no-cache bash terraform
+  - terraform --version
+  - terraform init
+
 validate: # Validate Terraform configuration files
   stage: validate
   script:
-    - terraform init
     - terraform validate
 
 plan:
