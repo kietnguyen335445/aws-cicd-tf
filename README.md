@@ -35,6 +35,7 @@ cd aws-cicd-tf
 ```sh
 terraform init
 ```
+![Capádqưqưqưture](https://github.com/user-attachments/assets/1eca2ffb-5b4a-4cd4-8f92-b34b186be811)
 4️⃣ Validate Terraform Configuration
 ```sh
 terraform validate
@@ -66,7 +67,6 @@ Apply: Applies the changes to the infrastructure (requires manual approval).
 Destroy: Destroys the infrastructure (requires manual approval).
 
 
-![Capádqưqưqưture](https://github.com/user-attachments/assets/1eca2ffb-5b4a-4cd4-8f92-b34b186be811)
 
 
 
