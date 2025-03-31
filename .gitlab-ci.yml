@@ -1,0 +1,73 @@
+image: hashicorp/terraform:latest
+
+variables:
+    TF_IN_AUTOMATION: "1"
+    AWS_ACCESS_KEY_ID: ${MY_AWS_KEY}
+    AWS_SECRET_ACCESS_KEY: ${MY_SECRET_ACCESS_KEY}
+    AWS_REGION: "ap-southeast-1"
+
+stages:
+  - validate
+  - plan
+  - apply
+  - destroy
+cache:
+  paths:
+    - .terraform/ # Cache Terraform dependencies to speed up CI/CD runs
+
+before_script:
+    - terraform --version
+    - terraform init
+
+validate: # Validate Terraform configuration files
+  stage: validate
+  script:
+    - terraform validate
+
+plan:
+  stage: plan
+  script:
+    - terraform plan -out=tfplan
+  artifacts:
+    paths:
+      - tfplan # Store the plan file as an artifact to be used in apply stage
+
+apply: 
+  stage: apply
+  script:
+    - terraform apply tfplan # Apply the saved Terraform plan
+  when: manual # Require manual approval before applying changes
+
+destroy:
+  stage: destroy
+  script:
+    - terraform destroy # Destroy all Terraform-managed infrastructure
+  when: manual # Require manual approval before destroying infrastructure
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
