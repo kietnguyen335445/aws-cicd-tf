@@ -49,6 +49,13 @@ terraform plan --var-file "terraform.tfvars"
 ```sh
 terraform apply --var-file "terraform.tfvars"
 ```
+## Destroying Resources
+
+To destroy the resources created by this Terraform configuration, run the following command:
+
+```bash
+terraform destroy --var-file "terraform.tfvars"
+```
 📜 GitLab CI/CD Pipeline
 The .gitlab-ci.yml file defines the CI/CD pipeline for this project. It includes the following stages:
 
