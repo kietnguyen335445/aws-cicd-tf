@@ -35,7 +35,6 @@ cd aws-cicd-tf
 ```
 3️⃣ Initialize Terraform
 ```sh
-sh
 terraform init
 ```
 4️⃣ Validate Terraform Configuration
