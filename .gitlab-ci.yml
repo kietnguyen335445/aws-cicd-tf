@@ -43,7 +43,7 @@ apply:
 destroy:
   stage: destroy
   script:
-    - terraform destroy --var-file "terraform.tfvars" # Destroy all Terraform-managed infrastructure
+    - terraform destroy -auto-approve # Destroy all Terraform-managed infrastructure
   when: manual # Require manual approval before destroying infrastructure
 
 
