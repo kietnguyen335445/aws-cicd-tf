@@ -35,7 +35,7 @@ plan:
       - tfplan # Store the plan file as an artifact to be used in apply stage
 
 apply: 
-  stage: 
+  stage: apply
   variables:
     GIT_STRATEGY: clone
   script:
