@@ -29,7 +29,7 @@ validate: # Validate Terraform configuration files
 plan:
   stage: plan
   script:
-    - terraform plan -out "tfplan" --var-file = terraform.tfvars
+    - terraform plan -out "tfplan" --var-file "terraform.tfvars"
   dependencies:
     - validate
   artifacts:
