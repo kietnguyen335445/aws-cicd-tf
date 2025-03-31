@@ -32,18 +32,24 @@ Add the following variables:
 ```sh
 git clone https://github.com/kietnguyen335445/aws-cicd-tf.git
 cd aws-cicd-tf
+```
 3️⃣ Initialize Terraform
+```sh
 sh
 terraform init
+```
 4️⃣ Validate Terraform Configuration
-sh
+```sh
 terraform validate
+```
 5️⃣ Plan the Infrastructure Changes
-sh
+```sh
 terraform plan
+```
 6️⃣ Apply the Infrastructure Changes
-sh
+```sh
 terraform apply
+```
 📜 GitLab CI/CD Pipeline
 The .gitlab-ci.yml file defines the CI/CD pipeline for this project. It includes the following stages:
 
