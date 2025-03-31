@@ -1,4 +1,4 @@
-# AWS CI/CD with Terraform
+# DEPLOY A COMPLETE VPC ON AWS USING TERRAFORM AND GITLAB CI/CD
 
 🚀 Terraform AWS VPC Deployment with GitLab CI/CD
 
