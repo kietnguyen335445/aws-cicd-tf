@@ -17,15 +17,12 @@ cache:
   paths:
     - .terraform/ # Cache Terraform dependencies to speed up CI/CD runs
 
-before_script:
-  - terraform --version
-  - terraform init
-
 validate: # Validate Terraform configuration files
   stage: validate
   script:
+    - terraform init
     - terraform validate
-
+  
 plan:
   stage: plan
   script:
@@ -37,7 +34,6 @@ plan:
 apply: 
   stage: apply
   variables:
-    GIT_STRATEGY: clone
   script:
     - terraform apply --var-file "terraform.tfvars" tfplan # Apply the saved Terraform plan
   when: manual # Require manual approval before applying changes
