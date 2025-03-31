@@ -43,11 +43,11 @@ terraform validate
 ```
 5️⃣ Plan the Infrastructure Changes
 ```sh
-terraform plan
+terraform plan --var-file "terraform.tfvars"
 ```
 6️⃣ Apply the Infrastructure Changes
 ```sh
-terraform apply
+terraform apply --var-file "terraform.tfvars"
 ```
 📜 GitLab CI/CD Pipeline
 The .gitlab-ci.yml file defines the CI/CD pipeline for this project. It includes the following stages:
