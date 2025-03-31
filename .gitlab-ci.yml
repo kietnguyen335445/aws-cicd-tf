@@ -15,18 +15,23 @@ stages:
   - destroy
 cache:
   paths:
-    - .terraform/ # Cache Terraform dependencies to speed up CI/CD runs
-
+  key: terraform-cache
+      - .terraform.tfstate
+      - .terraform/ # Cache Terraform dependencies to speed up CI/CD runs
+before_script:
+  - terraform --version
+  - terraform init      
 validate: # Validate Terraform configuration files
   stage: validate
   script:
-    - terraform init
     - terraform validate
   
 plan:
   stage: plan
   script:
-    - terraform plan --var-file "terraform.tfvars" -out=tfplan
+    - terraform plan -out "tfplan" --var-file = terraform.tfvars
+  dependencies:
+    - validate
   artifacts:
     paths:
       - tfplan # Store the plan file as an artifact to be used in apply stage
@@ -35,14 +40,22 @@ apply:
   stage: apply
   variables:
   script:
-    - terraform apply --var-file "terraform.tfvars" tfplan # Apply the saved Terraform plan
-  when: manual # Require manual approval before applying changes
+    - terraform apply -input=false "tfplan" # Apply the saved Terraform plan
+  dependencies:
+    - plan
+  when: manual # Require manual approval before applying 
+  artifacts:
+    paths:
+      - terraform.tfstate
 
 destroy:
   stage: destroy
   script:
-    - terraform destroy --var-file "terraform.tfvars" -auto-approve # Destroy all Terraform-managed infrastructure
+    - terraform destroy --var-file "terraform.tfvars" -auto-approve
   when: manual # Require manual approval before destroying infrastructure
+  dependencies: 
+    - apply # Destroy all Terraform-managed infrastructure
+ 
 
 
 
