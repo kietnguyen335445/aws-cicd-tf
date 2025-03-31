@@ -1,8 +1,8 @@
 provider "aws" {
   region = var.region
 }
-module "networking" {
-  source = "./modules/networking"
+module "vpc" {
+  source = "./modules/vpc"
   region = var.region
   availability_zone_1 = var.availability_zone_1
   availability_zone_2 = var.availability_zone_2
@@ -13,13 +13,13 @@ module "networking" {
 module "security" {
   source = "./modules/security"
   region = var.region
-  vpc_id = module.networking.vpc_id
+  vpc_id = module.vpc.vpc_id
 }
-module "compute" {
-  source = "./modules/compute"
+module "ec2" {
+  source = "./modules/ec2"
   region = var.region
   image_id = var.amis[var.region]
   instance_type = var.instance_type
   ec2_security_group_ids = [module.security.public_security_group_id]
-  subnet_id = module.networking.public_subnet_ids[0]
+  subnet_id = module.vpc.public_subnet_ids[0]
 }
