@@ -14,8 +14,8 @@ stages:
   - apply
   - destroy
 cache:
-  paths:
   key: terraform-cache
+  paths:
       - .terraform.tfstate
       - .terraform/ # Cache Terraform dependencies to speed up CI/CD runs
 before_script:
