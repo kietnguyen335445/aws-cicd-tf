@@ -1,10 +1,8 @@
-# DEPLOY A COMPLETE VPC ON AWS USING TERRAFORM AND GITLAB CI/CD
-
-🚀 Terraform AWS VPC Deployment with GitLab CI/CD
+🚀 DEPLOY A COMPLETE VPC ON AWS USING TERRAFORM AND GITLAB CI/CD
 
 ## 📌 Features
 
-- **Automated VPC Deployment**: Uses Terraform to create AWS VPC with subnets, internet gateways.
+- **Automated VPC Deployment**: Uses Terraform to create AWS VPC with subnets,security group, nat gateway, route table, internet gateways.
 - **GitLab CI/CD Integration**: Automates validation, planning, applying, and destroying infrastructure.
 - **Manual Approval for Deployment & Destruction**: Prevents unintended changes.
 
