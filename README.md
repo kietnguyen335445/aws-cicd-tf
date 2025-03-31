@@ -53,8 +53,11 @@ terraform apply
 The .gitlab-ci.yml file defines the CI/CD pipeline for this project. It includes the following stages:
 
 Validate: Checks the Terraform configuration for syntax errors.
+
 Plan: Generates an execution plan for Terraform changes.
+
 Apply: Applies the changes to the infrastructure (requires manual approval).
+
 Destroy: Destroys the infrastructure (requires manual approval).
 
 
