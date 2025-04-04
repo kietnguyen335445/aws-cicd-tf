@@ -69,7 +69,8 @@ terraform destroy --var-file "terraform.tfvars"
 ```
 ![destroy](https://github.com/user-attachments/assets/9e046799-2ece-4f17-88ff-44e94556a002)
 
-![destroy2](https://github.com/user-attachments/assets/c649e37d-be8d-48fe-b3aa-05b8acfaf1a4)
+
+![destroy3](https://github.com/user-attachments/assets/ed4dde6d-e46b-43cb-9d50-6ff9cf21aedb)
 
 
 📜 GitLab CI/CD Pipeline
